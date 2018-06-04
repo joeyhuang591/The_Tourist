@@ -7,21 +7,34 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::after,
+*::before {
     margin:0;
     padding:0;
-    box-sizing:border-box;
+    box-sizing:inherit;
+}
+
+html {
+    /* font-size:10px; */
+    /* equal to 10px and this is good practice because
+    if user change the font size of browser, the default font-size of browser will change
+    . But if we specificily set a actual value, the size won't change  */
+    font-size: 62.5%;
+
 }
 
 /* styles in body inheritant by child elements, but padding will not be inheritanted */
 body {
     font-family: "Lato",sans-serif;
     font-weight:400;
-    font-size:16px;
+    font-size:1.6rem;
     line-height:1.7;
     color:#777;
     /* padding will not be inheritanted */
-    padding:30px;
+    padding:3rem;
+
+    box-sizing:border-box;
 }
 
 .header {
@@ -38,16 +51,16 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)
 }
 
-.logo-box {
+.header__logo-box {
     position: absolute;
-    top:40px;
-    left:40px;
+    top:4rem;
+    left:4rem;
 }
-.logo {
+.header__logo {
     /* only need to set height, width will be adjusted by browser automaticlly */
-    height: 35px;
+    height: 3.5rem;
 }
-.text-box {
+.header__text-box {
     /* make element in the middle(horrizontal and vertical)
     1.using position absolute
     2.move element 50% from left to the right;(related to parent element weight)
@@ -59,19 +72,21 @@ body {
     left:50%;
     /* not from the parent any nore for transform */
     transform: translate(-50%,-50%);
+    text-align: center;
 }
 .heading-primary {
     color:#fff;
     text-transform: uppercase;
     /* fix shacking after animation */
     backface-visibility: hidden;
+    margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight:400;
-    letter-spacing:35px;
+    letter-spacing:3.5rem;
 
     animation-name: moveInLeft;
     animation-duration: 1s;
@@ -82,11 +97,11 @@ body {
 
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
-    font-size:20px;
+    font-size:2rem;
     font-weight: 700;
-    letter-spacing:17.4px;
+    letter-spacing:1.75rem;
 
     /* animation-name: moveInRight;
     animation-duration: 1s;
@@ -98,10 +113,10 @@ body {
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
     80% {
-        transform:translateX(10px);
+        transform:translateX(1rem);
     }
     100% {
         opacity: 1;
@@ -112,10 +127,73 @@ body {
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
     80% {
-        transform:translateX(-10px);
+        transform:translateX(-1rem);
+    }
+    100% {
+        opacity: 1;
+        transform:translate(0);
+    }
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display:inline-block;
+    border-radius:  10rem;
+    transition: all .2s;
+    position: relative;
+}
+.btn:hover {
+    /* button looks like a bit up when hover*/
+    transform: translateY(-3px);
+    /* x,y,blur and color */
+    box-shadow:0 1rem 2rem rgba(0,0,0,.2);
+}
+.btn:active {
+    /* button looks like a bit down when click */
+    transform: translateY(-1px);
+    box-shadow:0 .5rem 1rem rgba(0,0,0,.2);
+}
+.btn--white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after {
+    content:"";
+    display:inline-block;
+    height:100%;
+    width:100%;
+    border-radius: 10rem;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:-1;
+    transition:all .4s;
+}
+.btn--white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6) ;
+    opacity: 0;
+}
+
+.btn--animated {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
     }
     100% {
         opacity: 1;
