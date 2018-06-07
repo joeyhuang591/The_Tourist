@@ -1,0 +1,22 @@
+{
+  "name": "joey",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joeyhuang591/The_Tourist.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joeyhuang591/The_Tourist/issues"
+  },
+  "homepage": "https://github.com/joeyhuang591/The_Tourist#readme",
+  "devDependencies": {
+    "node-sass": "^4.9.0"
+  }
+}

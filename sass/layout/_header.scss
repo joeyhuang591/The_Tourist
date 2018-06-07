@@ -1,0 +1,37 @@
+.header {
+    height:95vh;
+    background-image:linear-gradient(
+        to right bottom,
+        rgba($color-primary-light,0.8),
+        rgba($color-primary-dark,0.8)),
+        url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top;
+    position:relative;
+    /* clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%) */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    &__logo-box {
+        position: absolute;
+        top:4rem;
+        left:4rem;
+    }
+    &__logo {
+        /* only need to set height, width will be adjusted by browser automaticlly */
+        height: 3.5rem;
+    }
+    &__text-box {
+        /* make element in the middle(horrizontal and vertical)
+        1.using position absolute
+        2.move element 50% from left to the right;(related to parent element weight)
+        3.move element 50% from up to down;(related to parent element height)
+        4.using transform:translate(-50%,-50%) to complete(move this component itself, not related to parent element) */
+    
+        position: absolute;
+        top:40%;
+        left:50%;
+        /* not from the parent any nore for transform */
+        transform: translate(-50%,-50%);
+        text-align: center;
+    }
+}

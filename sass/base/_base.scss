@@ -1,0 +1,19 @@
+*,
+*::after,
+*::before {
+    margin:0;
+    padding:0;
+    box-sizing:inherit;
+}
+
+html {
+    /* font-size:10px; */
+    // defines what 1rem is
+    font-size: 62.5%;
+
+}
+
+/* styles in body inheritant by child elements, but padding will not be inheritanted */
+body {
+    box-sizing:border-box;
+}
