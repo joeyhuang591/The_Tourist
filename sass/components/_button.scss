@@ -1,4 +1,5 @@
 .btn {
+    &,
     &:link,
     &:visited {
         text-transform: uppercase;
@@ -9,8 +10,12 @@
         transition: all .2s;
         position: relative;
         font-size:$default-font-size;
+
+        //change for the <button> element
+        border:none;
+        cursor:pointer;
     }
-    &:hover {
+    &:hover{
         /* button looks like a bit up when hover*/
         transform: translateY(-3px);
         /* x,y,blur and color */
@@ -21,8 +26,10 @@
             opacity: 0;
         }
     }
-    &:active {
+    &:active,
+    &:focus {
         /* button looks like a bit down when click */
+        outline: none;
         transform: translateY(-1px);
         box-shadow:0 .5rem 1rem rgba($color-black,.2);
     }
